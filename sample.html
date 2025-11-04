@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Joel Corona — Personal Profile</title>
+  <meta name="description" content="Personal profile and life status for Joel Corona. IT professional, digital product creator, parent, learner." />
+
+  <!-- Simple modern styling -->
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#06b6d4;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius:14px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #071320 0%, #082233 60%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+    }
+
+    .container{
+      max-width:1050px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    /* Left column - profile card */
+    .profile-card{
+      background: linear-gradient(180deg,var(--card), rgba(7,18,32,0.6));
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      position:sticky;
+      top:32px;
+    }
+    .avatar{
+      width:100%;
+      height:220px;
+      background: linear-gradient(120deg,var(--accent), #7c3aed);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-size:28px;
+      color:#082233;
+      letter-spacing:0.6px;
+      margin-bottom:14px;
+    }
+    .name{
+      font-size:22px;
+      font-weight:700;
+      margin:0 0 6px 0;
+    }
+    .title{
+      font-size:13px;
+      color:var(--muted);
+      margin:0 0 14px 0;
+    }
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+    .meta .pill{
+      background:var(--glass);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .contact{
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+    .contact a{ color:var(--accent); text-decoration:none }
+
+    /* Right column - content */
+    .content{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), var(--glass-2));
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: 0 6px 26px rgba(2,6,23,0.45);
+    }
+    h1,h2,h3{ margin:0 0 12px 0 }
+    h2{ font-size:18px; color:#dffaff }
+    p{ color:#cfe8f2; line-height:1.6; margin:0 0 12px 0 }
+
+    .section{
+      padding:14px 0;
+      border-bottom:1px dashed rgba(255,255,255,0.03);
+    }
+
+    .stats{
+      display:flex;
+      gap:12px;
+      margin-top:12px;
+    }
+    .stat{
+      background:rgba(255,255,255,0.02);
+      padding:12px;
+      border-radius:10px;
+      flex:1;
+      text-align:center;
+    }
+    .stat strong{ display:block; font-size:18px }
+    .badges{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px }
+    .badge{
+      background:rgba(255,255,255,0.03);
+      padding:8px 10px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .skills{ display:flex; gap:10px; flex-wrap:wrap }
+    .skill{
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:10px;
+      padding:8px 10px;
+      color:#cfe8f2;
+      font-size:13px;
+    }
+
+    .timeline{
+      margin-top:8px;
+    }
+    .timeline-item{
+      margin-bottom:12px;
+    }
+    .timeline-item small{ color:var(--muted); display:block; margin-bottom:6px }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      margin-top:16px;
+    }
+    .btn{
+      background:var(--accent);
+      color:#042034;
+      border:none;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:600;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+
+    footer{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .container{ grid-template-columns: 1fr; padding-bottom:120px }
+      .profile-card{ position:relative; top:0 }
+      .avatar{ height:180px }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <!-- LEFT: profile summary -->
+    <aside class="profile-card" aria-labelledby="profileName">
+      <div class="avatar" aria-hidden="true">
+        JC
+      </div>
+
+      <h3 id="profileName" class="name">Joel Corona</h3>
+      <div class="title">IT Professional • Digital Product Creator • Parent</div>
+
+      <div class="meta" aria-hidden="true">
+        <span class="pill">District IT Support (13 yrs)</span>
+        <span class="pill">Google IT Support</span>
+        <span class="pill">AWS trained</span>
+      </div>
+
+      <div class="contact">
+        <div><strong>Location:</strong> Philippines</div>
+        <div><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></div>
+        <div><strong>Website / Portfolio:</strong> <a href="#" id="portfolioLink">your-portfolio.example</a></div>
+        <div style="margin-top:8px"><strong>Family:</strong> Parent of 3 — Siatara, Siabara &amp; Amir</div>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="badges" aria-hidden="true">
+          <div class="badge">Canva</div>
+          <div class="badge">Digital Products</div>
+          <div class="badge">Spanish learner</div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px">
+        <a class="btn" href="#" onclick="downloadCV();return false">Download CV</a>
+        <a class="btn secondary" href="#" onclick="toggleTheme();return false" style="margin-left:8px">Toggle Theme</a>
+      </div>
+
+      <footer>
+        <div>Last updated: <time id="updatedDate">2025-11-05</time></div>
+        <div style="margin-top:6px">Tip: Edit this file to update your details and replace the avatar with a photo.</div>
+      </footer>
+    </aside>
+
+    <!-- RIGHT: detailed content -->
+    <main class="content" aria-labelledby="mainHeading">
+      <h1 id="mainHeading">About Me & Status in Life</h1>
+
+      <section class="section" aria-labelledby="aboutHeading">
+        <h2 id="aboutHeading">About Me</h2>
+        <p>
+          I am <strong>Joel Corona</strong>, an IT professional with over <strong>13 years</strong> experience as a District IT Support Officer.
+          I design and create digital products using tools such as Canva, and I enjoy learning new skills — including Spanish and cloud fundamentals.
+        </p>
+        <p>
+          My trainings include Google IT Support (Coursera), Cisco Cybersecurity Foundations, and AWS Cloud Practitioner training.
+          I am passionate about making practical digital products for learners and professionals.
+        </p>
+      </section>
+
+      <section class="section" aria-labelledby="statusHeading">
+        <h2 id="statusHeading">Status in Life</h2>
+        <p><strong>Current role:</strong> District IT Support — responsible for system administration, network, database management, and IT support coordination at the district level.</p>
+        <p><strong>Life priorities:</strong> Family (three children), stable career growth, creating passive income through digital products, and continuous learning.</p>
+
+        <div class="stats" aria-hidden="true">
+          <div class="stat">
+            <strong>13</strong>
+            Years public service
+          </div>
+          <div class="stat">
+            <strong>3</strong>
+            Children
+          </div>
+          <div class="stat">
+            <strong>1,000+</strong>
+            Goal: $1,000 / month product income
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="skillsHeading">
+        <h2 id="skillsHeading">Skills & Trainings</h2>
+        <div class="skills" role="list">
+          <div class="skill" role="listitem">System Administration</div>
+          <div class="skill" role="listitem">Network & Database Management</div>
+          <div class="skill" role="listitem">Google IT Support (Coursera)</div>
+          <div class="skill" role="listitem">Cisco Cybersecurity Foundations</div>
+          <div class="skill" role="listitem">AWS Cloud Practitioner (trained)</div>
+          <div class="skill" role="listitem">Canva & Digital Product Design</div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="timelineHeading">
+        <h2 id="timelineHeading">Experience & Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <small>2012 — Present</small>
+            <strong>District IT Support Officer</strong>
+            <div style="color:var(--muted)">System administration, network & database management, user support, procurement coordination.</div>
+          </div>
+
+          <div class="timeline-item">
+            <small>2023</small>
+            <strong>Google IT Support (Coursera)</strong>
+            <div style="color:var(--muted)">Completed course — practical IT operational skills.</div>
+          </div>
+
+          <div class="timeline-item">
+            <small>2024</small>
+            <strong>Cisco Cybersecurity Foundations</strong>
+            <div style="color:var(--muted)">Fundamentals of cybersecurity.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="projectsHeading">
+        <h2 id="projectsHeading">Projects & Digital Products</h2>
+        <p>
+          I create digital learning products (printables, guides, templates) on platforms like Amazon and Canva. My goal is to build reliable passive income while helping learners.
+        </p>
+        <p>
+          Example project ideas:
+        </p>
+        <ul>
+          <li>Printable study guides and flashcards for IT certifications</li>
+          <li>Step-by-step digital forensics starter guide for mobile devices</li>
+          <li>Canva templates for local small businesses and students</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="contactHeading">
+        <h2 id="contactHeading">Contact & Connect</h2>
+        <p>If you'd like to collaborate or see my portfolio, email me at <a href="mailto:your.email@example.com">your.email@example.com</a> or replace the contact link with your actual portfolio URL.</p>
+
+        <div class="actions" role="group" aria-label="Actions">
+          <a class="btn" href="mailto:your.email@example.com">Email Me</a>
+          <a class="btn secondary" href="#" onclick="openPortfolio();return false">Open Portfolio</a>
+        </div>
+      </section>
+
+      <footer style="margin-top:18px; color:var(--muted)">
+        Built with ❤️ — edit this file to personalize your content and replace images/links.
+      </footer>
+    </main>
+  </div>
+
+  <!-- Minimal JS: theme toggle, fake download -->
+  <script>
+    const root = document.documentElement;
+    let dark = true;
+    function toggleTheme(){
+      if(dark){
+        root.style.setProperty('--bg','#f7fafc');
+        root.style.setProperty('--card','#ffffff');
+        root.style.setProperty('--muted','#475569');
+        root.style.setProperty('--accent','#0ea5a4');
+        document.body.style.background = 'linear-gradient(180deg,#f8fafc 0%, #e6eef6 60%)';
+        document.body.style.color = '#042034';
+        dark
